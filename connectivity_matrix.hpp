@@ -30,23 +30,23 @@ public:
      * them by said sum.
      * @return a matrix of probability values
      */
-    const Matrix probability();
+    const Matrix probability() const;
     /*
      * Creates a transition matrix for the markov process.
      * @param pr a probability matrix
      * @return transition matrix
      */
-    const Matrix transition(const Matrix pr);
+    const Matrix transition(const Matrix pr) const;
     /*
      * Creates a rank matrix and uses a transition matrix for the markov process.
      * @param tr a transition matrix
      * @return ranked matrix after markov process
      */
-    const Matrix markov(const Matrix tr);
+    const Matrix markov(const Matrix tr) const;
     /*
      * Calculates page rank and prints it to cout.
      */
-    void page_rank();
+    void page_rank() const;
     /*
      * Puts the connectivity matrix into an output stream in an easily readable format.
      * @param os the stream to put the matrix into

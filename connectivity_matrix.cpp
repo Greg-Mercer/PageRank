@@ -33,7 +33,7 @@ Connectivity_Matrix::Connectivity_Matrix(vector<bool> v) {
     }
 }
 
-const Matrix Connectivity_Matrix::probability() {
+const Matrix Connectivity_Matrix::probability() const {
     Matrix temp(matrix.size(), matrix[0].size());
 
     for(unsigned int c = 0; c < matrix.size(); c++) {
@@ -54,7 +54,7 @@ const Matrix Connectivity_Matrix::probability() {
     return temp;
 }
 
-const Matrix Connectivity_Matrix::transition(const Matrix pr) {
+const Matrix Connectivity_Matrix::transition(const Matrix pr) const {
     Matrix m = pr;
 
     for (unsigned int r = 0; r < matrix.size(); r++) {
@@ -74,7 +74,7 @@ const Matrix Connectivity_Matrix::transition(const Matrix pr) {
     return m;
 }
 
-const Matrix Connectivity_Matrix::markov(const Matrix tr) {
+const Matrix Connectivity_Matrix::markov(const Matrix tr) const {
     Matrix rank(matrix.size(), 1);
 
     for (unsigned int r = 0; r < matrix.size(); r++) {
@@ -99,7 +99,7 @@ const Matrix Connectivity_Matrix::markov(const Matrix tr) {
     return rank;
 }
 
-void Connectivity_Matrix::page_rank() {
+void Connectivity_Matrix::page_rank() const {
     Matrix probability = this->probability();
     Matrix transition = this->transition(probability);
     Matrix markov = this->markov(transition);

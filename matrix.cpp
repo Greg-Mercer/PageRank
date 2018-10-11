@@ -79,7 +79,7 @@ void Matrix::set_value(const int r, const int c, const double newVal) {
     matrix[r][c] = newVal;
 }
 
-double Matrix::get_value(const int r, const int c) {
+double Matrix::get_value(const int r, const int c) const {
     if(r < 0 || c < 0 || (unsigned)r >= matrix.size() || (unsigned)c >= matrix[0].size()) {
         throw "Row and column must be within matrix.";
     }
@@ -105,7 +105,7 @@ ostream& operator<<(ostream& os, const Matrix& m) {
     return os;
 }
 
-bool Matrix::operator==(const Matrix& other) {
+bool Matrix::operator==(const Matrix& other) const {
     if(matrix.size() != other.matrix.size() || matrix[0].size() != other.matrix[0].size())
         return false;
 
@@ -116,7 +116,7 @@ bool Matrix::operator==(const Matrix& other) {
     return true;
 }
 
-bool Matrix::operator!=(const Matrix& other) {
+bool Matrix::operator!=(const Matrix& other) const {
     return !(*this == other);
 }
 
@@ -164,7 +164,7 @@ Matrix& Matrix::operator+=(const Matrix& other) {
     return *this;
 }
 
-Matrix Matrix::operator+(const Matrix& other) {
+Matrix Matrix::operator+(const Matrix& other) const {
     if(matrix.size() != other.matrix.size() || matrix[0].size() != other.matrix[0].size())
         throw "Matrices must be the same size";
 
@@ -185,7 +185,7 @@ Matrix& Matrix::operator-=(const Matrix& other) {
     return *this;
 }
 
-Matrix Matrix::operator-(const Matrix& other) {
+Matrix Matrix::operator-(const Matrix& other) const {
     if(matrix.size() != other.matrix.size() || matrix[0].size() != other.matrix[0].size())
         throw "Matrices must be the same size";
 
@@ -219,7 +219,7 @@ Matrix& Matrix::operator*=(const Matrix& other) {
     return *this;
 }
 
-Matrix Matrix::operator*(const Matrix& other) {
+Matrix Matrix::operator*(const Matrix& other) const {
     if(matrix[0].size() != other.matrix.size()) {
         throw "Number of columns of the first operand must be equal to number of rows of the second operand";
     }

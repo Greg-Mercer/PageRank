@@ -53,7 +53,7 @@ public:
      * @param c the column of the value to get
      * @return the value
      */
-    double get_value(const int r, const int c);
+    double get_value(const int r, const int c) const;
     /*
      * Sets all values within the matrix to 0.
      */
@@ -74,13 +74,13 @@ public:
      * @param other the matrix this one is being compared to
      * @return true if the matrices are equal, otherwise false
      */
-    bool operator==(const Matrix& other);
+    bool operator==(const Matrix& other) const;
     /*
      * Checks if a given matrix is unequal to another.
      * @param other the matrix this one is being compared to
      * @return true if the matrices are unequal, otherwise false
      */
-    bool operator!=(const Matrix& other);
+    bool operator!=(const Matrix& other) const;
     /*
      * Increments all values in the matrix by 1 (prefix).
      */
@@ -120,7 +120,7 @@ public:
      * @param other the matrix to add to this one
      * @return the resulting matrix
      */
-    Matrix operator+(const Matrix& other);
+    Matrix operator+(const Matrix& other) const;
     /*
      * Subtracts elements of one matrix from another.
      * @param other the matrix to subtract from this one
@@ -132,7 +132,7 @@ public:
      * @param other the matrix to subtract from this one
      * @return the resulting matrix
      */
-    Matrix operator-(const Matrix& other);
+    Matrix operator-(const Matrix& other) const;
     /*
      * Multiplies 2 matrices together.
      * @param other the matrix to multiply with this one
@@ -144,7 +144,7 @@ public:
      * @param other the matrix to multiply with this one
      * @return the resulting matrix
      */
-    Matrix operator*(const Matrix& other);
+    Matrix operator*(const Matrix& other) const;
 
 };
 
